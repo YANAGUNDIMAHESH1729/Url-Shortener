@@ -19,7 +19,7 @@ app.set("views", path.resolve("./views"));
 
 
 
-connectToMongoDB("mongodb://localhost:27017/short")
+connectToMongoDB(process.env.MONGO_URL)
 .then(()=>console.log("Mongodb connected"))
 
 app.use('/url',urlRoute);
