@@ -3,5 +3,5 @@ const msg = document.getElementById("generatedUrl");
          setTimeout(() => {
          msg.classList.add("fade-out"); 
          setTimeout(() => msg.remove(), 1000); 
-    }, 10000);
+    }, 20000);
 }
