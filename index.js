@@ -5,9 +5,9 @@ const staticRoute=require('./routes/staticRouter');
 const URL=require('./models/url');
 const {connectToMongoDB}=require('./connect');
 
-
+require('dotenv').config();
 const app=express();
-const PORT=5000;
+const PORT=process.env.PORT ||5000;
 
 app.use(express.static("public"));
 
@@ -42,4 +42,4 @@ app.get('/url/:shortId',async (req,res)=>{
  );
  res.redirect(entry.redirectURL);
 })
-app.listen(PORT,()=>console.log(`Server started at PORT: ${PORT}`));
+app.listen(PORT,()=>console.log(`Server started`));
