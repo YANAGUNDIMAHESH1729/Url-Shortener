@@ -1,5 +1,7 @@
 const { nanoid }=require('nanoid');
 const URL=require('../models/url');
+require('dotenv').config();
+
 async function handleGenerateNewShortURL(req,res){
     const body=req.body;
     if(!body.url) return res.status(400).json({error: 'url is required'});
@@ -12,7 +14,8 @@ async function handleGenerateNewShortURL(req,res){
     const allurls = await URL.find({"visitHistory.0": { $exists: true }});
     return res.render("home",{
         id:shortID,
-        urls:allurls
+        urls:allurls,
+        APP_URL: process.env.APP_URL
     });
 }
 

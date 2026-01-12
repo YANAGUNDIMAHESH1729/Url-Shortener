@@ -9,7 +9,7 @@
 <body>
     <h1>URL Shortener</h1>
      <% if (locals.id) { %>
-     <p id="generatedUrl" class="fade-message">URL Generated: http://localhost:5000/url/<%= id %></p>
+     <p id="generatedUrl" class="fade-message">URL Generated: <%= APP_URL %>/url/<%= id %></p>
     <% } %>
     
     <div>
