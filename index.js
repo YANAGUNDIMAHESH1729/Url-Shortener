@@ -20,7 +20,10 @@ app.set("views", path.resolve("./views"));
 
 
 connectToMongoDB(process.env.MONGO_URL)
-.then(()=>console.log("Mongodb connected"))
+.then(()=>console.log("Mongodb connected"));
+URL.deleteMany({})
+   .then(() => console.log("Old URL data cleared on startup"))
+   .catch(err => console.error(err));
 
 app.use('/url',urlRoute);
 app.use('/',staticRoute);
